@@ -5,9 +5,11 @@ extends Node
 var player_health = 5
 
 func player_damaged():
-	player_health -= 1
-	hud.remove_heart()
+	if player_health > 0:
+		player_health -= 1
+		hud.remove_heart()
 
 func player_healed():
-	player_health += 1
-	hud.add_heart()
+	if player_health < 5:
+		player_health += 1
+		hud.add_heart()

@@ -8,6 +8,9 @@ var turn_speed = 2
 
 var skip_count = 0
 func _process(delta):
+	_animate(delta)
+
+func _animate(delta):
 	if skip_count < 2:
 		skip_count += 1
 		skip_elapsed_time += delta
@@ -19,3 +22,7 @@ func _process(delta):
 	
 	skip_count = 0
 	skip_elapsed_time = 0
+
+
+func _on_area_3d_body_entered(body):
+	PlayerController.player_healed()

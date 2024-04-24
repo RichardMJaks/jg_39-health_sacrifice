@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpjhrhopm7k7k"]
+[gd_scene load_steps=11 format=3 uid="uid://cpjhrhopm7k7k"]
 
 [ext_resource type="Shader" path="res://vignette.gdshader" id="1_cutkw"]
 [ext_resource type="PackedScene" uid="uid://cx58l2v0ytrvf" path="res://player.tscn" id="2_rinvf"]
@@ -15,8 +15,11 @@ shader_parameter/MULTIPLIER = 1.0
 shader_parameter/SCALE = 0.5
 shader_parameter/SOFTNESS = 0.3
 
+[sub_resource type="Sky" id="Sky_3mjld"]
+
 [sub_resource type="Environment" id="Environment_a1f5h"]
 background_mode = 2
+sky = SubResource("Sky_3mjld")
 tonemap_exposure = 4.37
 glow_enabled = true
 volumetric_fog_enabled = true
