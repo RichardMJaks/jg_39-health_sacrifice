@@ -12,7 +12,12 @@ config_version=5
 
 config/name="Health Sacrifice"
 config/features=PackedStringArray("4.2", "Mobile")
+run/max_fps=30
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerController="*res://player_controller.gd"
 
 [editor_plugins]
 
@@ -54,10 +59,13 @@ ui_down={
 }
 shoot={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(388, 10),"global_position":Vector2(392, 51),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(174, 18),"global_position":Vector2(178, 59),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 
-[rendering]
+[layer_names]
 
-renderer/rendering_method="mobile"
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Enemy"
+3d_physics/layer_3="Ground"
+3d_physics/layer_4="Ground 2"

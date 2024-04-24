@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bng2ae6qk3uql"]
+[gd_scene load_steps=3 format=3 uid="uid://bng2ae6qk3uql"]
 
 [ext_resource type="PackedScene" uid="uid://dd5unm5mmqket" path="res://needle.blend" id="1_tsrts"]
+[ext_resource type="Script" path="res://needle_player.gd" id="2_iry05"]
 
 [node name="needle" instance=ExtResource("1_tsrts")]
+script = ExtResource("2_iry05")

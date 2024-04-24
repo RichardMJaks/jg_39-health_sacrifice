@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -11,8 +11,16 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head = $Head
 @onready var raycast : RayCast3D = $Head/Camera3D/RayCast3D
 @onready var needle : Node3D = $Head/Camera3D/needle
+
+var needle_angle = Vector3.ZERO
+
+var shoot_needle = preload("res://shoot_needle.tscn")
+
+var can_shoot = true
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	needle_angle = needle.rotation
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -23,16 +31,49 @@ func _unhandled_input(event):
 func _process(delta):
 	var col = raycast.get_collider()
 	if not col:
-		needle.rotation = Vector3.ZERO
+		needle.rotation = needle_angle
 	else:
 		var pos : Vector3 = raycast.get_collision_point()
 		needle.look_at(pos)
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and can_shoot:
 		_shoot()
 
 func _shoot():
-	needle.clone()
+	can_shoot = false
+	_instance_needle()
+	_tween_needle_anim()
+	take_damage()
+	
+func take_damage():
+	PlayerController.player_health -= 1
+
+func _instance_needle() -> void:
+	var inst : CharacterBody3D = shoot_needle.instantiate()
+	inst.position = needle.global_position
+	needle.position.z = 1
+	
+	var dir : Vector3
+	var speed = 40
+	if raycast.get_collider():
+		dir = raycast.get_collision_point()
+		inst.velocity = (dir - needle.global_position).normalized() * speed
+		add_sibling(inst)
+		inst.look_at(raycast.get_collision_point())
+	else:
+		inst.velocity = -needle.global_transform.basis.z * speed
+		add_sibling(inst)
+		inst.rotation = needle.global_rotation
+	
+	
+	
+
+func _tween_needle_anim() -> void:
+	var tween = needle.create_tween()
+	tween.tween_property(needle, "position:z", -0.5, 0.4)\
+	.set_delay(1)\
+	.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_callback(func(): can_shoot = true)
 
 func _physics_process(delta):
 	Input.get_last_mouse_velocity()

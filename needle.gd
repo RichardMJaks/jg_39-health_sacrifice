@@ -1,6 +1,13 @@
 extends CharacterBody3D
 
-const SPEED = 300
 func _physics_process(delta):
-	velocity = rotation * SPEED
 	move_and_slide()
+
+
+func _on_area_3d_body_entered(body):
+	if not (body is Enemy):
+		queue_free()
+		return
+	
+	body.die()
+	queue_free()
