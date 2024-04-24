@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://cpjhrhopm7k7k"]
 
-[ext_resource type="Shader" path="res://vignette.gdshader" id="1_cutkw"]
-[ext_resource type="PackedScene" uid="uid://cx58l2v0ytrvf" path="res://player.tscn" id="2_rinvf"]
-[ext_resource type="PackedScene" uid="uid://d2vn85anc67pm" path="res://enemy_1.tscn" id="4_us5cf"]
-[ext_resource type="PackedScene" uid="uid://cg6yr1jlfakxl" path="res://rose.tscn" id="6_474ex"]
-[ext_resource type="PackedScene" uid="uid://dotrugv0u74sh" path="res://hud.tscn" id="6_b5usn"]
+[ext_resource type="Shader" path="res://Resources/Shaders/vignette.gdshader" id="1_cutkw"]
+[ext_resource type="PackedScene" uid="uid://cx58l2v0ytrvf" path="res://Scenes/player.tscn" id="2_rinvf"]
+[ext_resource type="PackedScene" uid="uid://d2vn85anc67pm" path="res://Scenes/enemy_1.tscn" id="4_us5cf"]
+[ext_resource type="PackedScene" uid="uid://cg6yr1jlfakxl" path="res://Scenes/rose.tscn" id="6_474ex"]
+[ext_resource type="PackedScene" uid="uid://dotrugv0u74sh" path="res://Scenes/hud.tscn" id="6_b5usn"]
 [ext_resource type="Texture2D" uid="uid://c5kalhetviggv" path="res://addons/godot-prototype-texture/Vector/checker_black_512x512.svg" id="6_qehep"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uq536"]

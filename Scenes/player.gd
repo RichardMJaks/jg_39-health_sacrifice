@@ -15,7 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var needle_angle = Vector3.ZERO
 
-var shoot_needle = preload("res://shoot_needle.tscn")
+var shoot_needle = preload("res://Scenes/shoot_needle.tscn")
 
 var can_shoot = true
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgtxw8v7s2vlu"
-path="res://.godot/imported/heart-lost-1.png-56a74c82c92c8f96db45bcf27795838a.ctex"
+uid="uid://44hpvruo5o1b"
+path="res://.godot/imported/heart-lost-2.png-6d8cc00728e85400024b3a90c2cf7674.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://heart-lost-1.png"
-dest_files=["res://.godot/imported/heart-lost-1.png-56a74c82c92c8f96db45bcf27795838a.ctex"]
+source_file="res://Sprites/Heart/heart-lost-2.png"
+dest_files=["res://.godot/imported/heart-lost-2.png-6d8cc00728e85400024b3a90c2cf7674.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d8iwhtp2xma8"
-path="res://.godot/imported/needle.fbx-bc6915a53c51926bc25fadc1363255f9.scn"
+path="res://.godot/imported/needle.fbx-9801c1848727cccacc353a87198d527f.scn"
 
 [deps]
 
-source_file="res://needle.fbx"
-dest_files=["res://.godot/imported/needle.fbx-bc6915a53c51926bc25fadc1363255f9.scn"]
+source_file="res://Models/needle.fbx"
+dest_files=["res://.godot/imported/needle.fbx-9801c1848727cccacc353a87198d527f.scn"]
 
 [params]
 

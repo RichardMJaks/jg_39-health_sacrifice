@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ovst0q3wkxpm"
-path="res://.godot/imported/rose.blend-4d60257bdfe1c04cb6aac2da453c813b.scn"
+uid="uid://dd5unm5mmqket"
+path="res://.godot/imported/needle.blend-236a9e6a8e5805e915131ef34f6e03c0.scn"
 
 [deps]
 
-source_file="res://rose.blend"
-dest_files=["res://.godot/imported/rose.blend-4d60257bdfe1c04cb6aac2da453c813b.scn"]
+source_file="res://Models/needle.blend"
+dest_files=["res://.godot/imported/needle.blend-236a9e6a8e5805e915131ef34f6e03c0.scn"]
 
 [params]
 

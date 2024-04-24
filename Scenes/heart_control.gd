@@ -1,8 +1,8 @@
 extends BoxContainer
 
-@onready var beating_anim = preload("res://sprite-anim.tres")
-@onready var lost_anim = preload("res://heart_lost.tres")
-@onready var regained_anim = preload("res://heart_regained.tres")
+@onready var beating_anim = preload("res://Resources/Animations/sprite-anim.tres")
+@onready var lost_anim = preload("res://Resources/Animations/heart_lost.tres")
+@onready var regained_anim = preload("res://Resources/Animations/heart_regained.tres")
 
 func _ready():
 	beating_anim.current_frame = 0

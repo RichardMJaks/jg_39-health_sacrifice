@@ -1,6 +1,6 @@
 extends Node
 
-@onready var hud = get_tree().current_scene.get_node("HUD/Hearts")
+@onready var hud = get_tree().current_scene.get_node("PixelationContainer/Pixelation/HUD/Hearts")
 
 var player_health = 5
 

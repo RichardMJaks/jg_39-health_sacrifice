@@ -1,7 +1,7 @@
 [gd_resource type="AnimatedTexture" load_steps=3 format=3 uid="uid://c5mffhwnxioty"]
 
-[ext_resource type="Texture2D" uid="uid://b7xvpwfteck0k" path="res://heart.png" id="1_13qml"]
-[ext_resource type="Texture2D" uid="uid://l20bjx5jl712" path="res://heart-bump.png" id="2_75uxd"]
+[ext_resource type="Texture2D" uid="uid://b7xvpwfteck0k" path="res://Sprites/Heart/heart.png" id="1_13qml"]
+[ext_resource type="Texture2D" uid="uid://l20bjx5jl712" path="res://Sprites/Heart/heart-bump.png" id="2_75uxd"]
 
 [resource]
 frames = 2

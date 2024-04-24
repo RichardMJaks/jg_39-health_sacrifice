@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cg6yr1jlfakxl"]
 
-[ext_resource type="PackedScene" uid="uid://ovst0q3wkxpm" path="res://rose.blend" id="1_os6cr"]
-[ext_resource type="Script" path="res://rose.gd" id="2_70e37"]
+[ext_resource type="PackedScene" uid="uid://ovst0q3wkxpm" path="res://Models/rose.blend" id="1_os6cr"]
+[ext_resource type="Script" path="res://Scenes/rose.gd" id="2_70e37"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hw5u8"]
 size = Vector3(1, 1.65454, 1)

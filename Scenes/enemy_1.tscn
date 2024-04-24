@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2vn85anc67pm"]
 
-[ext_resource type="Script" path="res://enemy_1.gd" id="1_8qkny"]
-[ext_resource type="Texture2D" uid="uid://wc4vopeqp1rf" path="res://Untitled.png" id="1_55cw6"]
+[ext_resource type="Script" path="res://Scenes/enemy_1.gd" id="1_8qkny"]
+[ext_resource type="Texture2D" uid="uid://wc4vopeqp1rf" path="res://Sprites/Horror.png" id="2_qdywy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2fcxb"]
 size = Vector3(0.8, 1.8, 0.8)
@@ -18,7 +18,7 @@ script = ExtResource("1_8qkny")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 billboard = 1
 texture_filter = 0
-texture = ExtResource("1_55cw6")
+texture = ExtResource("2_qdywy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
