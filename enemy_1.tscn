@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2vn85anc67pm"]
+
+[ext_resource type="Texture2D" uid="uid://wc4vopeqp1rf" path="res://Untitled.png" id="1_55cw6"]
+
+[node name="Enemy 1" type="Sprite3D"]
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_55cw6")
