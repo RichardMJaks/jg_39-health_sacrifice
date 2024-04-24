@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dotrugv0u74sh"]
+
+[ext_resource type="Script" path="res://heart_control.gd" id="1_wmjkc"]
+[ext_resource type="Texture2D" uid="uid://c5mffhwnxioty" path="res://sprite-anim.tres" id="2_a7kfq"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hearts" type="BoxContainer" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_right = 649.0
+offset_bottom = 116.0
+script = ExtResource("1_wmjkc")
+
+[node name="1" type="TextureRect" parent="Hearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_a7kfq")
+expand_mode = 2
+
+[node name="2" type="TextureRect" parent="Hearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_a7kfq")
+expand_mode = 2
+
+[node name="3" type="TextureRect" parent="Hearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_a7kfq")
+expand_mode = 2
+
+[node name="4" type="TextureRect" parent="Hearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_a7kfq")
+expand_mode = 2
+
+[node name="5" type="TextureRect" parent="Hearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_a7kfq")
+expand_mode = 2

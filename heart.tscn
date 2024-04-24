@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccwm5g0n5vlf"]
+
+[ext_resource type="Texture2D" uid="uid://b7xvpwfteck0k" path="res://heart.png" id="1_n3w5x"]
+[ext_resource type="Texture2D" uid="uid://l20bjx5jl712" path="res://heart-bump.png" id="2_n6l3a"]
+[ext_resource type="Texture2D" uid="uid://cgtxw8v7s2vlu" path="res://heart-lost-1.png" id="3_ow1pn"]
+[ext_resource type="Texture2D" uid="uid://44hpvruo5o1b" path="res://heart-lost-2.png" id="4_ncl47"]
+[ext_resource type="Texture2D" uid="uid://biblmf86ojpo" path="res://heart-lost-3.png" id="5_q0ewu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nu3d7"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("1_n3w5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n6l3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ow1pn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ncl47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q0ewu")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"lost",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ncl47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ow1pn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n6l3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_n3w5x")
+}],
+"loop": false,
+"name": &"regained",
+"speed": 5.0
+}]
+
+[node name="Control" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nu3d7")
+animation = &"regained"
+frame = 3
+frame_progress = 1.0

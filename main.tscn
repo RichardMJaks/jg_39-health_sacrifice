@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpjhrhopm7k7k"]
+[gd_scene load_steps=10 format=3 uid="uid://cpjhrhopm7k7k"]
 
 [ext_resource type="Shader" path="res://vignette.gdshader" id="1_cutkw"]
 [ext_resource type="PackedScene" uid="uid://cx58l2v0ytrvf" path="res://player.tscn" id="2_rinvf"]
 [ext_resource type="PackedScene" uid="uid://d2vn85anc67pm" path="res://enemy_1.tscn" id="4_us5cf"]
 [ext_resource type="PackedScene" uid="uid://cg6yr1jlfakxl" path="res://rose.tscn" id="6_474ex"]
+[ext_resource type="PackedScene" uid="uid://dotrugv0u74sh" path="res://hud.tscn" id="6_b5usn"]
 [ext_resource type="Texture2D" uid="uid://c5kalhetviggv" path="res://addons/godot-prototype-texture/Vector/checker_black_512x512.svg" id="6_qehep"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uq536"]
@@ -14,17 +15,8 @@ shader_parameter/MULTIPLIER = 1.0
 shader_parameter/SCALE = 0.5
 shader_parameter/SOFTNESS = 0.3
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aahbn"]
-sky_top_color = Color(0.705882, 0, 0.0509804, 1)
-sky_horizon_color = Color(0.647059, 0, 0, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_r4qgm"]
-sky_material = SubResource("ProceduralSkyMaterial_aahbn")
-
 [sub_resource type="Environment" id="Environment_a1f5h"]
 background_mode = 2
-sky = SubResource("Sky_r4qgm")
 tonemap_exposure = 4.37
 glow_enabled = true
 volumetric_fog_enabled = true
@@ -40,6 +32,9 @@ albedo_texture = ExtResource("6_qehep")
 uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
+
+[node name="HUD" parent="." instance=ExtResource("6_b5usn")]
+z_index = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 modulate = Color(0.580392, 0, 0, 1)

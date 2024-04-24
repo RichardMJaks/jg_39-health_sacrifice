@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head = $Head
 @onready var raycast : RayCast3D = $Head/Camera3D/RayCast3D
 @onready var needle : Node3D = $Head/Camera3D/needle
+@onready var blood : GPUParticles3D = $Head/Camera3D/Blood
 
 var needle_angle = Vector3.ZERO
 
@@ -46,7 +47,8 @@ func _shoot():
 	take_damage()
 	
 func take_damage():
-	PlayerController.player_health -= 1
+	PlayerController.player_damaged()
+	blood.emitting = true
 
 func _instance_needle() -> void:
 	var inst : CharacterBody3D = shoot_needle.instantiate()
