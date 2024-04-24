@@ -7,6 +7,7 @@
 size = Vector3(1, 1.65454, 1)
 
 [node name="rose" instance=ExtResource("1_os6cr")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 script = ExtResource("2_70e37")
 
 [node name="Area3D" type="Area3D" parent="." index="8"]

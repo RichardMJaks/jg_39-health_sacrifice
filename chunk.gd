@@ -1,12 +1,16 @@
 extends CSGBox3D
+class_name Chunk
 
-var keep : bool = true
+# Render range in tiles
+# Used for spawning and despawning tiles
+var render_range = 3
+var tile_size = 100
 
-func _process(_delta):
-	call_deferred("_keep_or_remove")
-	
-func _keep_or_remove():
-	if not keep:
-		queue_free()
-	
-	keep = false
+# Formatting like this so it would be visually understandable where neighbours are positioned
+var neighbours : Array[Chunk] = [
+	null, null, null,
+	null,       null,
+	null, null, null
+]
+
+

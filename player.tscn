@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx58l2v0ytrvf"]
+[gd_scene load_steps=5 format=3 uid="uid://cx58l2v0ytrvf"]
 
 [ext_resource type="PackedScene" uid="uid://bng2ae6qk3uql" path="res://needle.tscn" id="1_bboxh"]
 [ext_resource type="Script" path="res://player.gd" id="1_ss8fl"]
-[ext_resource type="Script" path="res://ChunkRaycasts.gd" id="3_nu3t1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0v62q"]
 
@@ -20,7 +19,7 @@ script = ExtResource("1_ss8fl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="needle" parent="Head/Camera3D" instance=ExtResource("1_bboxh")]
-transform = Transform3D(1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, -0.3, -0.5)
+transform = Transform3D(0.994, 0, 0, 0, 0.994, 0, 0, 0, 1.29, 0, -0.45, -0.8)
 
 [node name="ColorRect" type="ColorRect" parent="Head/Camera3D"]
 offset_left = 556.0
@@ -39,6 +38,3 @@ mesh = SubResource("CapsuleMesh_0v62q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_iv8ux")
-
-[node name="ChunkRaycasts" type="Node3D" parent="."]
-script = ExtResource("3_nu3t1")

@@ -3,7 +3,8 @@ class_name Enemy
 
 @onready var player = $"../Player"
 
-var speed = 1
+var speed = 3
+var turning_speed = 10
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -29,3 +30,4 @@ func _on_area_3d_body_entered(body : Player):
 		return
 		
 	body.take_damage()
+	die()
