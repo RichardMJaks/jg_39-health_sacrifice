@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Health Sacrifice"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 run/max_fps=30
 config/icon="res://icon.svg"
@@ -19,6 +20,7 @@ config/icon="res://icon.svg"
 
 PlayerController="*res://Scenes/player_controller.gd"
 SpawnDirector="*res://SpawnDirector.gd"
+RoseSpawnDirector="*res://SpawnDirectorRose.gd"
 
 [display]
 

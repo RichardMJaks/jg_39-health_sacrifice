@@ -22,6 +22,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func die():
+	PlayerController.score += 1
 	queue_free()
 
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpjhrhopm7k7k"]
+[gd_scene load_steps=12 format=3 uid="uid://cpjhrhopm7k7k"]
 
 [ext_resource type="Shader" path="res://Resources/Shaders/vignette.gdshader" id="1_cutkw"]
+[ext_resource type="FontFile" uid="uid://bhy0f8mtn3kms" path="res://m5x7.ttf" id="1_kpkjc"]
+[ext_resource type="Script" path="res://Scenes/score_counter.gd" id="2_j243h"]
 [ext_resource type="PackedScene" uid="uid://cx58l2v0ytrvf" path="res://Scenes/player.tscn" id="2_rinvf"]
-[ext_resource type="PackedScene" uid="uid://d2vn85anc67pm" path="res://Scenes/enemy_1.tscn" id="4_us5cf"]
 [ext_resource type="PackedScene" uid="uid://cg6yr1jlfakxl" path="res://Scenes/rose.tscn" id="6_474ex"]
 [ext_resource type="PackedScene" uid="uid://dotrugv0u74sh" path="res://Scenes/hud.tscn" id="6_b5usn"]
 [ext_resource type="Texture2D" uid="uid://c5kalhetviggv" path="res://addons/godot-prototype-texture/Vector/checker_black_512x512.svg" id="6_qehep"]
@@ -36,6 +37,34 @@ uv1_triplanar = true
 
 [node name="Arena" type="Node3D"]
 
+[node name="HUD_OTHER" type="Control" parent="."]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Score Counter" type="Label" parent="HUD_OTHER"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_top = 24.0
+offset_right = 48.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.364706, 0.113725, 0.0784314, 1)
+theme_override_fonts/font = ExtResource("1_kpkjc")
+theme_override_font_sizes/font_size = 70
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_j243h")
+
 [node name="HudPixelationContainer" type="SubViewportContainer" parent="."]
 z_index = 1
 texture_filter = 1
@@ -57,6 +86,7 @@ render_target_update_mode = 4
 
 [node name="HUD" parent="HudPixelationContainer/HudPixelation" instance=ExtResource("6_b5usn")]
 z_index = 1
+texture_filter = 1
 scale = Vector2(0.3, 0.3)
 
 [node name="PixelationContainer" type="SubViewportContainer" parent="."]
@@ -89,12 +119,6 @@ environment = SubResource("Environment_a1f5h")
 [node name="Player" parent="PixelationContainer/Pixelation/World" instance=ExtResource("2_rinvf")]
 transform = Transform3D(-0.946734, 0, 0.322018, 0, 1, 0, -0.322018, 0, -0.946734, 3, 1.27923, -41.2083)
 
-[node name="Enemy 1" parent="PixelationContainer/Pixelation/World" instance=ExtResource("4_us5cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 42.6215)
-
-[node name="rose2" parent="PixelationContainer/Pixelation/World" instance=ExtResource("6_474ex")]
-transform = Transform3D(0.40455, 0, 0, 0, 0.40455, 0, 0, 0, 0.40455, 1.76995, 0.281459, -2.38958)
-
 [node name="Arena" type="CSGCylinder3D" parent="PixelationContainer/Pixelation/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.292, 0)
 material_override = SubResource("StandardMaterial3D_eavwy")
@@ -118,3 +142,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.1314, 0)
 radius = 196.591
 height = 7.64058
 sides = 12
+
+[node name="rose" parent="." instance=ExtResource("6_474ex")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 13, 0.25, 11)
+
+[node name="DeathScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundDarken" type="ColorRect" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="Label" type="Label" parent="DeathScreen"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.5
+offset_top = -99.0
+offset_right = 512.5
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_kpkjc")
+theme_override_font_sizes/font_size = 80
+text = "AND THIS IS HOW OUR LITTLE BEE DIED
+
+DUE TO THE HUMANS 
+WHO FEARED THE STINGER"
+horizontal_alignment = 1
