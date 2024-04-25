@@ -7,13 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://dotrugv0u74sh" path="res://Scenes/hud.tscn" id="6_b5usn"]
 [ext_resource type="Texture2D" uid="uid://c5kalhetviggv" path="res://addons/godot-prototype-texture/Vector/checker_black_512x512.svg" id="6_qehep"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uq536"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o03xr"]
 shader = ExtResource("1_cutkw")
 shader_parameter/player_position = Vector2(0.5, 0.5)
 shader_parameter/black = Color(0, 0, 0, 1)
 shader_parameter/MULTIPLIER = 1.0
 shader_parameter/SCALE = 0.5
-shader_parameter/SOFTNESS = 0.3
+shader_parameter/SOFTNESS = 1.2
 
 [sub_resource type="Sky" id="Sky_3mjld"]
 
@@ -34,12 +34,34 @@ volumetric_fog_ambient_inject = 1.2
 albedo_texture = ExtResource("6_qehep")
 uv1_triplanar = true
 
-[node name="Node3D" type="Node3D"]
+[node name="Arena" type="Node3D"]
+
+[node name="HudPixelationContainer" type="SubViewportContainer" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 5
+
+[node name="HudPixelation" type="SubViewport" parent="HudPixelationContainer"]
+transparent_bg = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(230, 129)
+render_target_update_mode = 4
+
+[node name="HUD" parent="HudPixelationContainer/HudPixelation" instance=ExtResource("6_b5usn")]
+z_index = 1
+scale = Vector2(0.3, 0.3)
 
 [node name="PixelationContainer" type="SubViewportContainer" parent="."]
-modulate = Color(0.580392, 0, 0, 1)
 texture_filter = 1
-material = SubResource("ShaderMaterial_uq536")
+material = SubResource("ShaderMaterial_o03xr")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,40 +72,40 @@ stretch_shrink = 6
 
 [node name="Pixelation" type="SubViewport" parent="PixelationContainer"]
 handle_input_locally = false
+canvas_item_default_texture_filter = 0
 size = Vector2i(192, 108)
 render_target_update_mode = 4
 
-[node name="HUD" parent="PixelationContainer/Pixelation" instance=ExtResource("6_b5usn")]
-z_index = 1
-scale = Vector2(0.3, 0.3)
+[node name="World" type="CanvasLayer" parent="PixelationContainer/Pixelation"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="PixelationContainer/Pixelation"]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="PixelationContainer/Pixelation/World"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 1.55647, 0)
 light_color = Color(1, 1, 0.945098, 1)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="PixelationContainer/Pixelation"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PixelationContainer/Pixelation/World"]
 environment = SubResource("Environment_a1f5h")
 
-[node name="Player" parent="PixelationContainer/Pixelation" instance=ExtResource("2_rinvf")]
+[node name="Player" parent="PixelationContainer/Pixelation/World" instance=ExtResource("2_rinvf")]
 transform = Transform3D(-0.946734, 0, 0.322018, 0, 1, 0, -0.322018, 0, -0.946734, 3, 1.27923, -41.2083)
 
-[node name="Enemy 1" parent="PixelationContainer/Pixelation" instance=ExtResource("4_us5cf")]
+[node name="Enemy 1" parent="PixelationContainer/Pixelation/World" instance=ExtResource("4_us5cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 42.6215)
 
-[node name="rose2" parent="PixelationContainer/Pixelation" instance=ExtResource("6_474ex")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.75029, 0.290543, -3.61692)
+[node name="rose2" parent="PixelationContainer/Pixelation/World" instance=ExtResource("6_474ex")]
+transform = Transform3D(0.40455, 0, 0, 0, 0.40455, 0, 0, 0, 0.40455, 1.76995, 0.281459, -2.38958)
 
-[node name="Arena" type="CSGCylinder3D" parent="PixelationContainer/Pixelation"]
+[node name="Arena" type="CSGCylinder3D" parent="PixelationContainer/Pixelation/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.292, 0)
 material_override = SubResource("StandardMaterial3D_eavwy")
 use_collision = true
 collision_layer = 12
+collision_mask = 12
 radius = 196.591
 height = 44.914
 sides = 12
 
-[node name="WallSubstraction" type="CSGCylinder3D" parent="PixelationContainer/Pixelation/Arena"]
+[node name="WallSubstraction" type="CSGCylinder3D" parent="PixelationContainer/Pixelation/World/Arena"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -198.884, 0)
 operation = 2
 radius = 201.733
@@ -91,7 +113,7 @@ height = 514.051
 sides = 12
 cone = true
 
-[node name="Floor" type="CSGCylinder3D" parent="PixelationContainer/Pixelation/Arena"]
+[node name="Floor" type="CSGCylinder3D" parent="PixelationContainer/Pixelation/World/Arena"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.1314, 0)
 radius = 196.591
 height = 7.64058

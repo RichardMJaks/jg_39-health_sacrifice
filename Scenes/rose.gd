@@ -7,6 +7,10 @@ var float_speed = 4
 var turn_speed = 2
 
 var skip_count = 0
+
+func _ready():
+	position.y += intensity
+
 func _process(delta):
 	_animate(delta)
 
